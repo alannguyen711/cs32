@@ -1,0 +1,30 @@
+QUESTION 2
+6, 4
+6, 3
+6, 5
+7, 5
+8, 5
+8, 6
+8, 7
+8, 8
+7, 8
+6, 6
+5, 4
+4, 4
+
+QUESTION 4
+6, 4
+5, 4
+6, 5
+6, 3
+4, 4
+6, 6
+7, 5
+3, 4
+4, 5
+8, 5
+2, 4
+4, 6
+
+The main difference between the two algorithms is that solving the maze using a stack processes the last item pushed onto the stack while with a queue, each new square to explore is added to the end of the queue. When you are searching with a stack, the search goes "deep" into the same direction until it hits a dead end. The last item pushed onto the stack is always right next to the current square being processed. When we solve the maze using a queue, the squares we explore expand outward like ripples in a pond. The squares closer to the starting square are explored before squares farther away.
+

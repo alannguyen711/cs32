@@ -1,0 +1,23 @@
+PROBLEM 2
+The reason that the one-argument form of Sequence<Coord>::insert causes a compilation error is because the less than operator is not defined for comparing two Coord's. The two-argument form of insert does not use the less than operator in its implementation, therefore it is not subject to this same problem. The criterion for comparing two Coord's is not explicitly stated, so the computer does not know how to evaluate
+        value > p->m_value
+    so a compilation error appears.
+
+
+PROBLEM 4B
+I could not solve this problem if I had only a one-parameter listAll and I had to implement it as the recursive function because you need to have the path name as a parameter in order to print out the full path name up to a certain file. If not, you would just be printing out the listAll of each file after its parent directory instead of its full path.
+
+
+PROBLEM 5A
+The complexity of this algorithm is O(N^3). There are three for loops which each run N times, nested inside one another. We can ignore the assignments and operations within the for loops themselves because we are considering only the highest order term in our calculation.
+
+PROBLEM 5B
+The complexity of this algorithm is O(N^3). The innermost for loop will run N times. The one just outside of it will run a maximum of number of N times, and the outermost for loop will run N times. This gives a time complexity of O(N^3).
+
+
+PROBLEM 6A
+The order of this function is O(N^2). Assuming nmin is N because n1 and n2 are equal, the inside of the for loop is O(N) because accessing elements is O(N). The for loop runs N times, making the time complexity O(N^2). Although there are two for loops, this can be ignored because the constants can be disregarded.
+
+PROBLEM 6B
+The order of this function is O(N). The for loops are performing insertions as many times as the length of the list of Nodes. Therefore, the time complexity is O(N), ignoring the constant.
+

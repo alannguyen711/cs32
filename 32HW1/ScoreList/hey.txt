@@ -1,0 +1,72 @@
+
+
+#include "newSequence.h"
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+int main()
+{
+    // throw print statements
+    Sequence a(1000);   // a can hold at most 1000 items
+    Sequence b(5);      // b can hold at most 5 items
+    Sequence c;         // c can hold at most DEFAULT_MAX_ITEMS items
+    ItemType v = 6;
+      // No failures inserting 5 items into b
+    for (int k = 0; k < 5; k++)
+        assert(b.insert(v) != -1); cerr << "1 ";
+      // Failure if we try to insert a sixth item into b
+    assert(b.insert(v) == -1); cerr << "2 ";
+      // When two Sequences' contents are swapped, their capacities are
+      // swapped as well:
+    a.swap(b); cerr << "3 ";
+    assert(a.insert(v) == -1  &&  b.insert(v) != -1);cerr << "4 ";
+    
+    // TEST COPY CONSTRUCTOR
+    Sequence first(4);
+    for (int i = 0; i < 4; i++)
+    {
+        assert(first.insert(6) == 0); cerr << "5 ";
+    }
+    Sequence second = first; cerr << "6 ";
+    assert(second.size() == 4); cerr << "7 ";
+    for (int i = 0; i < 4; i++)
+    {
+        ItemType num;
+        second.get(i, num);
+        assert(num == 6); cerr << "8 ";
+    }
+    
+    // TEST ASSIGNMENT OPERATOR
+    Sequence third(5); cerr << "9 ";
+    for (int i = 0; i < 3; i++)
+    {
+        assert(third.insert(20 - i) == 0); cerr << "10 ";
+    }
+    assert(third.size() == 3); cerr << "11 ";
+    Sequence fourth(9); cerr << "12 ";
+    fourth = third; cerr << "13 ";
+    assert(fourth.size() == 3); cerr << "14 ";
+    assert(fourth.find(18) == 0); cerr << "15 ";
+    assert(fourth.find(19) == 1); cerr << "16 ";
+    assert(fourth.find(20) == 2); cerr << "17 ";
+    assert(fourth.insert(6) == 0);   cerr << "18 ";   // array has 6 18 19 20
+    assert(fourth.size() == 4); cerr << "19 ";
+    assert(fourth.insert(1, 9) == 1); cerr << "20 "; // TROUBLE HERE
+    
+    
+    Sequence blah(2); cerr << "21 ";
+    Sequence bleh(1); cerr << "22 ";
+    assert(bleh.insert(8) == 0); cerr << "23 ";
+    assert(bleh.insert(10) == -1); cerr << "24 ";
+    blah = bleh; cerr << "25 ";
+    assert(blah.insert(10) == -1); cerr << "26 ";
+    
+    cout << endl;
+    
+    cout << "All tests succeeded." << endl;
+    
+
+}
+
+
